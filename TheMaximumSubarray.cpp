@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ vector<string> split(const string &);
 vector<int> maxSubarray(vector<int> arr) {
     int x = arr.at(0);
 
-    int maxSequence =  x;
+    int maxSequence = max(0, x);
     int maximum = x;
 
     int minSum = 0;
@@ -46,7 +47,6 @@ vector<int> maxSubarray(vector<int> arr) {
 
 int main()
 {
-
     string t_temp;
     getline(cin, t_temp);
 
@@ -67,12 +67,9 @@ int main()
 
         for (int i = 0; i < n; i++) {
             int arr_item = stoi(arr_temp[i]);
-
             arr[i] = arr_item;
         }
-
         vector<int> result = maxSubarray(arr);
-
         for (size_t i = 0; i < result.size(); i++) {
             cout << result[i];
 
@@ -83,7 +80,6 @@ int main()
 
         cout << "\n";
     }
-
     return 0;
 }
 
